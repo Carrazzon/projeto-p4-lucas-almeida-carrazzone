@@ -5,7 +5,7 @@ O problema escolhido foi o seguinte:
 # Simulador de Rede de Computadores Simplificada
 
 ### ALUNO: Lucas Almeida Carrazzone
-### Etapa atual do projeto: ``` [P4-ETAPA-01] Proposta do Problema ```
+### Etapa atual do projeto: ``` [P4-ETAPA-02] Contrato Semântico e Testes ```
 
 ## Visão Geral do Projeto
 
@@ -18,6 +18,13 @@ O problema consiste em um grafo direcionado composto por roteadores, relays e de
 Os roteadores recebem pacotes e os enviam para outros roteadores com o mesmo endereço; o peso representa a distância entre um roteador e outro, e deve ser possível visualizar pelo terminal todos os nós pelos quais o pacote passou. Caso o pacote chegue a um relay, ele deve ser espalhado para todos os nós aos quais o relay está conectado direcionalmente, ou seja, o pacote é multiplicado e enviado a todos os nós que possuem o mesmo endereço IP.
 
 O endereço IP do pacote deve ser gerenciado pelos nós, e não pelo pacote em si: o nó deve ter uma variável que armazena seu próprio endereço. Antes de repassar o pacote, o nó deve confirmar se o próximo nó de menor peso possui o mesmo endereço; caso contrário, deve encaminhar o pacote ao próximo nó de menor peso com o mesmo IP. Se não houver nenhum, o algoritmo deve retroceder pelo caminho em busca de uma saída; e, se isso também for impossível, o programa deve imprimir no terminal que não foi possível entregar o pacote ao destino final.
+
+## Alterações em relação à Etapa 1 — `[P4-ETAPA-02]`
+
+- **Um nó não pode ter dois pacotes ao mesmo tempo.** Se a entrada colocar dois pacotes no mesmo nó, o programa deve retornar `"Package Collision"`.
+- **Um pacote não pode passar pelo mesmo nó duas vezes.** Nesse caso, o programa deve retornar `"Package cannot go through the same emitter twice"`.
+
+O contrato de comportamento completo (formato de entrada, formato de saída e regras) está em [`testes/casos.md`](testes/casos.md).
 
 ## Estrutura do Projeto
 
@@ -40,4 +47,5 @@ projeto-p4-lucas-almeida-carrazzone/
 ├── funcional/
 ├── logico/
 └── integrado/
+
 ```
